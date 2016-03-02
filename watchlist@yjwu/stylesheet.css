@@ -1,0 +1,40 @@
+.icon-gain {
+    background-image: url("icons/icon-gain.svg");
+    background-size: 18px;
+    height: 15px;
+    width: 24px;
+}
+
+.icon-loss {
+    background-image: url("icons/icon-loss.svg");
+    background-size: 18px;
+    height: 18px;
+    width: 24px;
+}
+
+.icon-unchanged {
+    background-image: url("icons/icon-unchanged.svg");
+    background-size: 18px;
+    height: 18px;
+    width: 24px;
+}
+
+
+.text-gain {
+    color: #04B404; 
+}
+
+.text-loss {
+    color: #DF0101;
+}
+
+.text-datetime {
+    font-size: 80%;
+    color: #BDBDBD;
+}
+
+.alignbox {
+    text-align: right;
+    padding-right: 6px;
+}
+

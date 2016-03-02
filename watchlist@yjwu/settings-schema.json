@@ -1,0 +1,123 @@
+{
+    "sec-settings": {
+        "type": "header",
+        "description": "Usage settings"
+    },
+    "source": {
+        "type": "radiogroup",
+        "default": "yahoo",
+        "description": "Retrieve data from",
+        "options": {
+            "Yahoo! Finance": "yahoo",
+            "Google Finance": "google"
+        }
+    },
+    "period": {
+        "type": "spinbutton",
+        "default": 15,
+        "min": 1,
+        "max": 120,
+        "units": "minutes",
+        "step": 1,
+        "description": "Refresh every"
+    },
+    "display-portf": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Show portfolio"
+    },
+    "portfolio": {
+        "type": "entry",
+        "default": "VTI,20;VEU,10;MUB,15",
+        "description": "Watchlist/Portfolio",
+        "tooltip": "Format: symbol1,#shares1;symbol2,#shares2;symbol3;symbol4;..."
+    },
+    "change-display": {
+        "type": "radiogroup",
+        "default": "percent",
+        "description": "Display daily change in the portfolio value in",
+        "options": {
+            "Percentage (%)": "percentage",
+            "Dollars ($)": "dollars",
+            "None": "none"
+        },
+        "dependency": "display-portf"
+    },
+    "verbose": {
+        "type": "checkbox",
+        "default": false,
+        "description": "Display a warning message as data retrieval failed"
+    },
+    "separator": {
+        "type": "separator"
+    },
+    "sec-indexes": {
+        "type": "header",
+        "description": "Display indexes"
+    },
+    "show-S&P500": {
+        "type": "checkbox",
+        "default": true,
+        "description": "S&P 500 Index"
+    },
+    "show-DJI": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Dow Jones Industrial Average"
+    },
+    "show-Nasdaq": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Nasdaq Composite"
+    },
+    "show-VIX": {
+        "type": "checkbox",
+        "default": true,
+        "description": "CBOE Volatility Index"
+    },
+    "show-TN10Y": {
+        "type": "checkbox",
+        "default": true,
+        "description": "CBOE Interest Rate 10 Year T-Note"
+    },
+    "show-Nikkei": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Nikkei 225 Index"
+    },
+    "show-TSEC": {
+        "type": "checkbox",
+        "default": true,
+        "description": "TSEC Weighted Index"
+    },
+    "show-HSI": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Hang Seng Index"
+    },
+    "show-DAX": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Deutscher Aktienindex"
+    },
+    "show-CAC40": {
+        "type": "checkbox",
+        "default": true,
+        "description": "CAC 40 Index"
+    },
+    "show-FTSE100": {
+        "type": "checkbox",
+        "default": true,
+        "description": "FTSE 100 Index"
+    },
+    "show-TSX": {
+        "type": "checkbox",
+        "default": true,
+        "description": "S&P/TSX Composite Index"
+    },
+    "show-Ibovespa": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Ibovespa"
+    }
+}

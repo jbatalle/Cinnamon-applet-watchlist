@@ -1,0 +1,7 @@
+{
+    "uuid": "watchlist@yjwu",
+    "icon": "emblem-marketing",
+    "name": "Watchlist",
+    "description": "View stock quotes",
+    "max-instances": "1"
+}
