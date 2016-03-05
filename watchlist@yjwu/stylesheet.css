@@ -1,38 +1,65 @@
+/* Icon for gain/loss/unchanged/unknown positions */
 .icon-gain {
-    background-image: url("icons/icon-gain.svg");
+    background-image: url("icons/gain.svg");
     background-size: 18px;
     height: 15px;
     width: 24px;
 }
 
 .icon-loss {
-    background-image: url("icons/icon-loss.svg");
+    background-image: url("icons/loss.svg");
     background-size: 18px;
     height: 18px;
     width: 24px;
 }
 
 .icon-unchanged {
-    background-image: url("icons/icon-unchanged.svg");
+    background-image: url("icons/unchanged.svg");
+    background-size: 18px;
+    height: 18px;
+    width: 24px;
+}
+
+.icon-unknown {
+    background-image: url("icons/unknown.svg");
     background-size: 18px;
     height: 18px;
     width: 24px;
 }
 
 
+/* Font of text for gain/loss/unchanged/unknown positions */
 .text-gain {
     color: #04B404; 
 }
 
 .text-loss {
-    color: #DF0101;
+    color: #df0101;
 }
 
+.text-unchanged {
+    color: #FFFFFF;
+}
+
+
+.text-unknown {
+    color: #BDBDBD; 
+}
+
+
+/* Color of text for header/symbols/last/allcation */
+.text-common {
+    color: initial;
+}
+
+
+/* Font for "Last Updated:..." */
 .text-datetime {
     font-size: 80%;
     color: #BDBDBD;
 }
 
+/* Right-aligned text box" */
 .alignbox {
     text-align: right;
     padding-right: 6px;

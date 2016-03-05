@@ -12,36 +12,44 @@
             "Google Finance": "google"
         }
     },
-    "period": {
+    "period-refresh": {
         "type": "spinbutton",
         "default": 15,
         "min": 1,
         "max": 120,
         "units": "minutes",
         "step": 1,
-        "description": "Refresh every"
+        "description": "Refresh data every"
     },
-    "display-portf": {
-        "type": "checkbox",
-        "default": true,
-        "description": "Show portfolio"
+    "period-rotate": {
+        "type": "spinbutton",
+        "default": 3,
+        "min": 0,
+        "max": 60,
+        "units": "seconds (set 0 to display the value of your portfolio)",
+        "step": 1,
+        "description": "Switch symbols/indexes in the panel every"
     },
     "portfolio": {
         "type": "entry",
-        "default": "VTI,20;VEU,10;MUB,15",
+        "default": "VTI,20;VEU,10;MUB,15;JNK;GLD",
         "description": "Watchlist/Portfolio",
         "tooltip": "Format: symbol1,#shares1;symbol2,#shares2;symbol3;symbol4;..."
     },
-    "change-display": {
+    "change-unit": {
         "type": "radiogroup",
         "default": "percent",
-        "description": "Display daily change in the portfolio value in",
+        "description": "Display daily change in the panel in",
         "options": {
             "Percentage (%)": "percentage",
             "Dollars ($)": "dollars",
             "None": "none"
-        },
-        "dependency": "display-portf"
+        }
+    },
+    "display-allocations": {
+        "type": "checkbox",
+        "default": true,
+        "description": "Show allocations"
     },
     "verbose": {
         "type": "checkbox",
@@ -79,45 +87,5 @@
         "type": "checkbox",
         "default": true,
         "description": "CBOE Interest Rate 10 Year T-Note"
-    },
-    "show-Nikkei": {
-        "type": "checkbox",
-        "default": true,
-        "description": "Nikkei 225 Index"
-    },
-    "show-TSEC": {
-        "type": "checkbox",
-        "default": true,
-        "description": "TSEC Weighted Index"
-    },
-    "show-HSI": {
-        "type": "checkbox",
-        "default": true,
-        "description": "Hang Seng Index"
-    },
-    "show-DAX": {
-        "type": "checkbox",
-        "default": true,
-        "description": "Deutscher Aktienindex"
-    },
-    "show-CAC40": {
-        "type": "checkbox",
-        "default": true,
-        "description": "CAC 40 Index"
-    },
-    "show-FTSE100": {
-        "type": "checkbox",
-        "default": true,
-        "description": "FTSE 100 Index"
-    },
-    "show-TSX": {
-        "type": "checkbox",
-        "default": true,
-        "description": "S&P/TSX Composite Index"
-    },
-    "show-Ibovespa": {
-        "type": "checkbox",
-        "default": true,
-        "description": "Ibovespa"
     }
 }

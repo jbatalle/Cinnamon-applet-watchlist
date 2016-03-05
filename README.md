@@ -7,12 +7,14 @@ Quotes may be delayed by 15 minutes.
 *Watchlist* is tested on Cinnamon 2.8.6.
 
 ## Screenshots
+#### Quote on the panel
+![Quote](https://cloud.githubusercontent.com/assets/6327275/13592380/a721f498-e4bf-11e5-85f3-8904147ffe35.png)
 #### Drop-down list 
-Daily change in your portfolio value is on the panel. Click a stock/index to open charts in the browser.
+Click a stock/index to open charts in the browser.
 
-![Watchlist](https://cloud.githubusercontent.com/assets/6327275/13519766/86a50576-e1a8-11e5-8cbb-f74fcac13dfb.png)
+![Watchlist](https://cloud.githubusercontent.com/assets/6327275/13592440/0f086fc4-e4c0-11e5-9d1e-02a8d6d93821.png)
 #### Settings
-![Settings](https://cloud.githubusercontent.com/assets/6327275/13544060/719cea6c-e23f-11e5-9f54-49c950465b16.png)
+![Settings](https://cloud.githubusercontent.com/assets/6327275/13592381/a7384a90-e4bf-11e5-8528-8f504ef9f5a6.png)
 
 ## Setup your watchlist/portfolio
 To setup a watchlist/portfolio, type symbols and positions in the following format 
@@ -20,7 +22,7 @@ To setup a watchlist/portfolio, type symbols and positions in the following form
 ```
 Symbol1,#Shares1;Symbol2,#Shares2;Symbol3;Symbol4...
 ```
-in the settings. For example, ``VTI,10;VEU,0;MUB,5;JNK;GLD`` means the portfolio formed by 10 shares of *VTI*, 0 share of *VEU*, and 5 shares of *MUB* as well as *JNK* and *GLD* included in the list.  
+in the settings. For example, ``VTI,10;VEU,0;MUB,5;JNK;GLD`` means the portfolio formed by 10 shares of *VTI*, 0 share of *VEU*, and 5 shares of *MUB* as well as *JNK* and *GLD* included in the list.
 
 All positions must be priced in the same currency to obtain the correct value in the portfolio. 
 
@@ -30,9 +32,8 @@ Select the following indexes in cinnamon-settings to display in the drop-down li
   - S&P 500 Index
   - Dow Jones Industrial Average (available only with Google Finance)
   - Nasdaq Composite
-  - CBOE Volatility Index  
+  - CBOE Volatility Index
   - CBOE Interest Rate 10 Year T-Note
-  - World markets: Nikkei 225, TSEC, Heng Seng, DAX, CAC 40, FTSE 100, S&P/TSX, Ibovespa 
 
 ## Installation
 Copy the folder ``watchlist@yjwu`` to `$HOME/.local/share/cinnamon/applets/` and enable *Watchlist* in `cinnamon-settings applets`.
