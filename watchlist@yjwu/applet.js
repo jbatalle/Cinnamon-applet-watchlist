@@ -28,7 +28,7 @@ const SOURCE = { "yahoo": "Yahoo! Finance", "google": "Google Finance" };
 
 const ATTRIBUTES = ['source', 'period-refresh', 'period-rotate', 'display-allocations', 'change-unit', 'portfolio', 'verbose', 'show-S&P500', 'show-DJI', 'show-Nasdaq', 'show-VIX', 'show-TN10Y'];
 const INDEX_NAMES = ['S&P500', 'DJI', 'Nasdaq', 'VIX', 'TN10Y'];
-const INDEX_SYMBOLS = {"yahoo": ["^GSPC", "^DJI", "^IXIC", "^VIX", "^TNX"], "google": [".INX", ".DJI", ".IXIC", "INDEXCBOE:VIX", "INDEXCBOE:TNX"]};
+const INDEX_SYMBOLS = {"google": [".INX", ".DJI", ".IXIC", "INDEXCBOE:VIX", "INDEXCBOE:TNX"], "yahoo": ["^GSPC", "^DJI", "^IXIC", "^VIX", "^TNX"]};
 
 // ------------
 // Soup
@@ -114,6 +114,8 @@ MyApplet.prototype = {
     _portf: Object(),                                                               // Parsed portfolio
     _symbol_list: [],                                                               // List of symbols in rotation
     _preferences: Object(),                                                         // Settings
+    _failure: null,                                                                 // Item of error message
+    _timestamp: null,                                                               // Item of timestamp
 
     _init: function(orientation, panel_height, instance_id) {
         Applet.TextIconApplet.prototype._init.call(this, orientation, panel_height, instance_id);
@@ -157,6 +159,7 @@ MyApplet.prototype = {
         this.set_applet_icon_path(ICON_DIR + "icon.svg");
         this.set_applet_label("")
         this.menu.addMenuItem(new PopupMenu.PopupMenuItem("Loading data...", { reactive: false }));
+        this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
     },
 
     // Parse portfolio in settings
@@ -199,6 +202,16 @@ MyApplet.prototype = {
         this.menu.addMenuItem(item);
     },
 
+    buildTimestamp: function() {
+        if (this._timestamp != null) {
+            this._timestamp.destroy();
+        }
+        this._timestamp = new PopupMenu.PopupMenuItem(
+                "Last Updated: " + (new Date()).toLocaleString() + " from " + SOURCE[this._preferences['source']],
+                { style_class: "text-status", reactive: false });
+        this.menu.addMenuItem(this._timestamp);
+    },
+ 
     buildFullList: function() {
         this.buildListHeader(false);
         Object.keys(this._portf).forEach(function(symbol) { return this.buildListItem(symbol, symbol, false); }, this);
@@ -206,13 +219,8 @@ MyApplet.prototype = {
         if (Object.keys(this._portf).length > 0 && this.indexSymbols.length > 0) {
             this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
         }
-
         this.indexSymbols.forEach(function(symbol) { return this.buildListItem(symbol[0], symbol[1], true); }, this)
-
         this.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-        this.menu.addMenuItem(new PopupMenu.PopupMenuItem(
-                    "Last Updated: " + (new Date()).toLocaleString() + " from " + SOURCE[this._preferences['source']],
-                    { style_class: "text-datetime", reactive: false }));
     },
 
     // ----------------------------
@@ -243,16 +251,20 @@ MyApplet.prototype = {
                 context.updateData(message.response_body.data);
                 context.buildFullList();
                 context.updatePanel();
-                context._refreshTimeout(60 * context._preferences['period-refresh']);
             } catch (error) {
-                let note = "Unable to process data from " + SOURCE[context._preferences['source']] + ". Error message: " + error.message;
-                context.menu.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-                context.menu.addMenuItem(new PopupMenu.PopupMenuItem(note, { reactive: false }));
+                let note = "Unable to process data from " + SOURCE[context._preferences['source']] + 
+                           ". Error message: " + error.message;
+                if (context._failure != null) {
+                    context._failure.destroy();
+                }
+                context._failure = new PopupMenu.PopupMenuItem(note, { style_class: "text-status", reactive: false });
+                context.menu.addMenuItem(context._failure);
                 context._displayNotification("Bad response", note, 10);
                 global.log(error);
             } 
- 
+            context.buildTimestamp();
         });
+        this._refreshTimeout(60 * context._preferences['period-refresh']);
 
     },
 
