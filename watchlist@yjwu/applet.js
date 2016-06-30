@@ -69,7 +69,7 @@ WatchlistItem.prototype = {
         PopupMenu.PopupBaseMenuItem.prototype._init.call(this, params);
 
         let row = new St.BoxLayout();
-        let width = [56, 60, 108, 72];
+        let width = [56, 60, 114, 72];
         let iconBox = new St.BoxLayout({ width: 30 });
  
         // Get contents of cells

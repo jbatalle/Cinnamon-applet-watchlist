@@ -4,7 +4,7 @@
 
 Quotes may be delayed by 15 minutes. 
 
-*Watchlist* is tested on Cinnamon 2.8.6.
+*Watchlist* is tested on Cinnamon 3.0.6.
 
 ## Screenshots
 #### Quote on the panel
